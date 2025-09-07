@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empyrion Shield Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-shield-halved"></i> Empyrion Shield Calculator</h1>
+            <p>Optimize your shield configuration for Empyrion Galactic Survival</p>
+        </header>
+
+        <div class="card">
+            <h2>Input Parameters</h2>
+            <!-- First line: Total CPU, Available CPU, CPU Efficiency -->
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="total-cpu">Total CPU Points:</label>
+                    <input type="number" id="total-cpu" value="400000" min="1" step="10000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="available-cpu">Available CPU for Shields:</label>
+                    <input type="number" id="available-cpu" value="200000" min="1" step="10000">
+                </div>
+
+                <div class="input-group">
+                    <label for="cpu-efficiency">Min CPU Efficiency (%):</label>
+                    <input type="number" id="cpu-efficiency" value="80" min="0" max="100" step="5">
+                </div>
+            </div>
+            
+            <!-- Second line: Shield Generator Type and Min Recharge Rate -->
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="shield-type">Shield Generator Type:</label>
+                    <select id="shield-type">
+                        <option value="compact">Compact Shield Generator (6,000 cap, 300 rech)</option>
+                        <option value="regular">Regular Shield Generator (12,000 cap, 300 rech)</option>
+                        <option value="advanced" selected>Advanced Shield Generator (24,000 cap, 600 rech)</option>
+                        <option value="alien">Alien Shield Generator (40,000 cap, 1,000 rech)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="min-recharge">Min Recharge Rate:</label>
+                    <input type="number" id="min-recharge" value="1500" min="0" step="100">
+                </div>
+            </div>
+            
+            <!-- Third line: Small and Large Fusion Reactors -->
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="small-fusion">Small Fusion Reactors:</label>
+                    <input type="number" id="small-fusion" value="0" min="0" max="20" step="1">
+                </div>
+
+                <div class="input-group">
+                    <label for="large-fusion">Large Fusion Reactors:</label>
+                    <input type="number" id="large-fusion" value="0" min="0" max="20" step="1">
+                </div>
+            </div>
+
+            <div class="block-section">
+                <h3>Ship Blocks (Shield Capacity)</h3>
+                <div class="blocks-grid">
+                    <div class="input-group">
+                        <label for="steel-blocks">Steel Blocks:</label>
+                        <input type="number" id="steel-blocks" value="0" min="0" step="100">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hardened-steel">Hardened Steel:</label>
+                        <input type="number" id="hardened-steel" value="0" min="0" step="100">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="combat-steel">Combat Steel:</label>
+                        <input type="number" id="combat-steel" value="0" min="0" step="100">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="xeno-blocks">Xeno Blocks:</label>
+                        <input type="number" id="xeno-blocks" value="0" min="0" step="100">
+                    </div>
+                </div>
+            </div>
+
+            <button id="calculate-btn" class="primary-button">Calculate Optimal Configuration</button>
+        </div>
+
+        <div class="card results" id="results-section">
+            <h2>Results</h2>
+            
+            <div class="results-section">
+                <h3>Shield Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-group">
+                        <span class="stat-label">Shield Generator:</span>
+                        <span class="stat-value" id="shield-generator-label">Advanced Shield Generator</span>
+                    </div>
+                    
+                    <div class="stat-group">
+                        <span class="stat-label">Base Shield Capacity:</span>
+                        <span class="stat-value" id="base-capacity-label">24,000</span>
+                    </div>
+                    
+                    <div class="stat-group">
+                        <span class="stat-label">Base Shield Recharge:</span>
+                        <span class="stat-value" id="base-recharge-label">600</span>
+                    </div>
+
+                    <div class="stat-group">
+                        <span class="stat-label">Block Shield Contribution:</span>
+                        <span class="stat-value" id="block-contribution-label">0</span>
+                    </div>
+
+                    <div class="stat-group">
+                        <span class="stat-label">Total Shield Capacity:</span>
+                        <span class="stat-value" id="total-capacity-label">--</span>
+                    </div>
+                    
+                    <div class="stat-group">
+                        <span class="stat-label">Total Recharge Rate:</span>
+                        <span class="stat-value" id="total-recharge-label">--</span>
+                    </div>
+
+                    <div class="stat-group">
+                        <span class="stat-label">Time to Fully Recharge:</span>
+                        <span class="stat-value" id="recharge-time-label">--</span>
+                    </div>
+                    
+                    <div class="stat-group">
+                        <span class="stat-label">CPU Usage:</span>
+                        <span class="stat-value" id="cpu-usage-label">--</span>
+                    </div>
+
+                    <div class="stat-group">
+                        <span class="stat-label">CPU Efficiency:</span>
+                        <span class="stat-value" id="cpu-efficiency-label">--</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tier-usage">
+                <h3>Booster Usage by Tier</h3>
+                <div class="tier-grid">
+                    <div class="tier">
+                        <span class="tier-label">Basic Tier:</span>
+                        <span class="tier-value" id="basic-tier-label">0/8</span>
+                    </div>
+                    
+                    <div class="tier">
+                        <span class="tier-label">Improved Tier:</span>
+                        <span class="tier-value" id="improved-tier-label">0/6</span>
+                    </div>
+                    
+                    <div class="tier">
+                        <span class="tier-label">Advanced Tier:</span>
+                        <span class="tier-value" id="advanced-tier-label">0/4</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="components">
+                <h3>Components</h3>
+                <div class="components-grid" id="components-grid">
+                    <!-- Components will be filled dynamically -->
+                </div>
+            </div>
+
+            <div class="status-area" id="status-text">
+                <!-- Status messages will appear here -->
+            </div>
+        </div>
+
+        <footer>
+            <p>Empyrion Shield Calculator &copy; 2025 | <a href="https://github.com/Denizay22/empyrion-shield-calculator">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="shield-data.js"></script>
+    <script src="shield-calculator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

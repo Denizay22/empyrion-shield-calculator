@@ -38,7 +38,23 @@ pip install -r requirements.txt
 
 ## Usage
 
-### GUI Version
+### Web Version
+
+Use the online calculator directly in your browser:
+```
+https://denizay22.github.io/empyrion-shield-calculator/
+```
+
+The web version offers the same features as the desktop application but is accessible from any device with a web browser. No installation required!
+
+#### Web Version Features
+- Responsive design that works on desktop and mobile devices
+- Real-time calculations
+- Easy to use interface
+- Saves your last configuration (using browser local storage)
+- No server-side processing - all calculations happen in your browser
+
+### Desktop GUI Version
 
 Run the graphical user interface:
 ```

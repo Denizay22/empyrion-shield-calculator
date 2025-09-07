@@ -1,0 +1,7 @@
+<!-- Favicon SVG for the Shield Calculator -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <path fill="#3498db" d="M32 4L8 12v24c0 12.7 14.3 20 24 24 9.7-4 24-11.3 24-24V12L32 4z"/>
+  <path fill="#2980b9" d="M32 8L14 14v20c0 9 10.3 15.1 18 18 7.7-2.9 18-9 18-18V14L32 8z"/>
+  <path fill="#ecf0f1" d="M32 12L20 16v16c0 6.5 6.5 10.7 12 13 5.5-2.3 12-6.5 12-13V16L32 12z"/>
+  <path fill="#3498db" d="M32 20l-4 4-2-2-4 4 6 6 8-8z"/>
+</svg>

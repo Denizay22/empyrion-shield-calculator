@@ -1,0 +1,231 @@
+/* Dark theme variables */
+:root {
+    --bg-color: #282c34;
+    --card-bg: #21252b;
+    --text-color: #abb2bf;
+    --heading-color: #e06c75;
+    --input-bg: #1e2127;
+    --input-border: #3e4451;
+    --button-primary: #61afef;
+    --button-hover: #56b6c2;
+    --highlight-color: #42A5F5;
+    --tier-color: #98c379;
+    --footer-bg: #1e2127;
+}
+
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--input-border);
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: var(--heading-color);
+    margin: 15px 0;
+}
+
+/* Input grid */
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+input:focus, select:focus {
+    outline: 1px solid var(--button-primary);
+}
+
+/* Block section */
+.block-section {
+    margin-top: 20px;
+}
+
+/* One-row grid for ship blocks */
+.blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.primary-button {
+    background-color: var(--button-primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto 0;
+    transition: background-color 0.3s;
+}
+
+.primary-button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Results section */
+.results {
+    display: block;
+}
+
+.results-section {
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.stat-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.stat-label {
+    font-weight: bold;
+}
+
+.stat-value {
+    text-align: right;
+}
+
+/* Tier usage */
+.tier-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tier {
+    text-align: center;
+}
+
+.tier-label {
+    font-weight: bold;
+    color: var(--tier-color);
+    margin-right: 10px;
+}
+
+/* Components */
+.components-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.component {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.component.active {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+/* Status area */
+.status-area {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    min-height: 50px;
+    background-color: var(--input-bg);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px 0;
+    border-top: 1px solid var(--input-border);
+    background-color: var(--footer-bg);
+}
+
+footer a {
+    color: var(--button-primary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .input-grid, .stats-grid, .components-grid, .blocks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tier-grid {
+        flex-direction: column;
+    }
+    
+    .tier {
+        margin-bottom: 10px;
+    }
+}
