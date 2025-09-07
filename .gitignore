@@ -37,3 +37,12 @@ ENV/
 
 # Project specific
 *.log
+
+# Specifically exclude Python implementation files
+setup.py
+shield_calculator.py
+shield_calculator_ui.py
+shieldcalc.py
+requirements.txt
+shield_generators.json
+shieldinfo.json
