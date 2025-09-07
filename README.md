@@ -27,7 +27,7 @@ A calculator tool for optimizing shield configurations in Empyrion Galactic Surv
 
 1. Clone this repository:
 ```
-git clone https://github.com/YourUsername/empyrion-shield-calculator.git
+git clone https://github.com/Denizay22/empyrion-shield-calculator.git
 cd empyrion-shield-calculator
 ```
 

@@ -4,9 +4,9 @@ setup(
     name="empyrion-shield-calculator",
     version="1.0.0",
     description="Shield configuration calculator for Empyrion Galactic Survival",
-    author="Your Name",
+    author="Denizay22",
     author_email="your.email@example.com",
-    url="https://github.com/YourUsername/empyrion-shield-calculator",
+    url="https://github.com/Denizay22/empyrion-shield-calculator",
     packages=find_packages(),
     package_data={
         "": ["*.json"],
